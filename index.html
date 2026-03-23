@@ -42,7 +42,7 @@
             position: absolute; top: 22px; right: 25px;
             display: inline-flex; align-items: center; gap: 7px;
             background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 5px 14px; border-radius: 50px; opacity: 0.7; transition: 0.4s;
+            padding: 5px 14px; border-radius: 50px; opacity: 0.7; transition: 0.4s; z-index: 10;
         }
         .main-card:hover .live-capsule-corner { opacity: 1; border-color: rgba(223, 194, 140, 0.4); }
         .eye-icon-micro { width: 14px; height: 14px; filter: brightness(0) invert(1) opacity(0.5); }
@@ -172,8 +172,8 @@
         <div class="live-capsule-corner">
             <img src="https://img.icons8.com/material-rounded/24/ffffff/visible.png" class="eye-icon-micro" alt="Views">
             <span class="c-label">VIEWS</span>
-            <img class="c-img-minimal" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frayesh-pro-beam.github.io&count_bg=%2300000000&title_bg=%2300000000&icon=&icon_color=%23E7E7E7&title=&edge_flat=true" alt="Counter">
-        </div>
+            <img class="c-img-minimal" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frayeshofficiall.github.io%2FRayesh%2F&count_bg=%2300000000&title_bg=%2300000000&icon=&icon_color=%23E7E7E7&title=&edge_flat=true" alt="Counter">
+            </div>
 
         <div class="content-relative">
             <div class="profile-zone">
@@ -213,9 +213,9 @@
             </div>
 
             <div class="social-mini-group">
-                <a href="https://www.tiktok.com/@rayesh_unre?_r=1&_t=ZS-94u8TLKgN0e" target="_blank" class="mini-icon"><img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok.png" alt="Tiktok"></a>
-                <div class="mini-icon" onclick="openModal()"><img src="https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png" alt="Youtube"></div>
-                <div class="mini-icon" onclick="openModal()"><img src="https://img.icons8.com/ios-filled/50/ffffff/facebook-new.png" alt="Facebook"></div>
+                <a href="https://www.tiktok.com/@rayesh_unre?_r=1&_t=ZS-94u8TLKgN0e" target="_blank" class="mini-icon" rel="noopener" title="TikTok"><img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok.png" alt="Tiktok"></a>
+                <div class="mini-icon" onclick="openModal()" style="cursor: pointer;" title="YouTube"><img src="https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png" alt="Youtube"></div>
+                <div class="mini-icon" onclick="openModal()" style="cursor: pointer;" title="Facebook"><img src="https://img.icons8.com/ios-filled/50/ffffff/facebook-new.png" alt="Facebook"></div>
             </div>
         </div>
     </div>
