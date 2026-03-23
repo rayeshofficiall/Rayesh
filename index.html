@@ -57,10 +57,10 @@
         }
 
         .ring-outer {
-            inset: -14px; /* กระชับวงแหวนเข้ามา */
+            inset: -14px;
             background-image: conic-gradient(from 0deg, rgba(223, 194, 140, 0) 0%, rgba(223, 194, 140, 0.7) 25%, rgba(255, 255, 255, 0.8) 30%, rgba(223, 194, 140, 0.7) 35%, rgba(223, 194, 140, 0) 50%);
             filter: drop-shadow(0 0 3px rgba(223, 194, 140, 0.2));
-            animation: spin 10s linear infinite; /* หมุนช้าลงเล็กน้อยเพื่อความนุ่มนวล */
+            animation: spin 10s linear infinite; 
         }
 
         .ring-inner {
@@ -73,7 +73,7 @@
         @keyframes spin-reverse { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
 
         .profile-wrapper {
-            width: 110px; height: 110px; /* ย่อขนาดรูปโปรไฟล์ลงเล็กน้อยเพื่อความลงตัว */
+            width: 110px; height: 110px; 
             border-radius: 50%; padding: 5px;
             background: linear-gradient(135deg, rgba(223, 194, 140, 0.3), transparent);
             position: relative; z-index: 2;
@@ -91,7 +91,7 @@
 
         /* --- Typography (Professional Finetuned) --- */
         .title-premium {
-            font-family: 'Cinzel', serif; font-size: 2.5rem; margin: 12px 0 0; /* ย่อขนาดและลด Margin */
+            font-family: 'Cinzel', serif; font-size: 2.5rem; margin: 12px 0 0; 
             background: linear-gradient(90deg, #fff, #DFC28C, #fff); background-size: 200% auto;
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             letter-spacing: 10px; font-weight: 700; animation: shimmerText 5s linear infinite;
@@ -101,21 +101,20 @@
         .bio-description { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 35px; line-height: 1.7; }
         .bio-description strong { color: #DFC28C; font-weight: 500; }
 
-        /* --- 🌟 Elite Buttons with Refined Beam --- */
+        /* --- 🌟 Elite Buttons --- */
         .links-area { display: flex; flex-direction: column; gap: 18px; }
         
         .elite-btn {
             position: relative; display: flex; align-items: center;
             background: rgba(255, 255, 255, 0.02); color: #ffffff;
-            text-decoration: none; padding: 18px 22px; border-radius: 18px; /* กระชับขนาดปุ่ม */
+            text-decoration: none; padding: 18px 22px; border-radius: 18px;
             overflow: hidden; transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* --- ⚡ Refined Beam Animation --- */
         .elite-btn::before {
             content: ""; position: absolute; top: 50%; left: 50%;
-            width: 150%; height: 30px; /* ลดความหนาของแสง */
+            width: 150%; height: 30px; 
             background: linear-gradient(transparent, rgba(223, 194, 140, 0.3), transparent);
             transform: translate(-50%, -50%) rotate(45deg);
             animation: beamRotate 4s linear infinite;
@@ -147,7 +146,6 @@
         
         .arrow-action { font-size: 1rem; color: #DFC28C; opacity: 0.3; transition: 0.4s; }
 
-        /* Hover Interaction */
         .elite-btn:hover { transform: translateY(-4px); border-color: rgba(223, 194, 140, 0.4); box-shadow: 0 12px 25px rgba(0,0,0,0.5); }
         .elite-btn:hover .icon-premium { background: rgba(223, 194, 140, 0.15); transform: scale(1.03); }
         .elite-btn:hover .arrow-action { opacity: 1; transform: translateX(4px); }
@@ -187,7 +185,7 @@
         <div class="live-capsule-corner">
             <img src="https://img.icons8.com/material-rounded/24/ffffff/visible.png" class="eye-icon-micro" alt="Views">
             <span class="c-label">VIEWS</span>
-            <img src="https://hits.dwyl.com/rayeshofficiall/Rayesh.svg" alt="Counter" style="height: 12px; filter: invert(1) brightness(1.5); opacity: 0.9;">
+            <img src="https://count.getloli.com/get/@rayeshofficiall_rayesh?theme=asoul" alt="Counter" style="height: 14px; filter: invert(1) brightness(2); opacity: 0.8;">
         </div>
 
         <div class="content-relative">
@@ -229,7 +227,7 @@
 
             <div class="social-mini-group">
                 <a href="https://www.tiktok.com/@rayesh_unre?_r=1&_t=ZS-94u8TLKgN0e" target="_blank" class="mini-icon" rel="noopener" title="TikTok"><img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok.png" alt="Tiktok"></a>
-                <div class="mini-icon" style="cursor: pointer;" onclick="openModal()" title="YouTube"><img src="https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png" alt="Youtube"></div>
+                <div class="mini-icon" style="cursor: pointer;" onclick="openModal()" title="YouTube"><img src="https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png" alt="YouTube"></div>
                 <div class="mini-icon" style="cursor: pointer;" onclick="openModal()" title="Facebook"><img src="https://img.icons8.com/ios-filled/50/ffffff/facebook-new.png" alt="Facebook"></div>
             </div>
         </div>
@@ -238,7 +236,6 @@
     <script>
         function openModal() { document.getElementById('comingSoonModal').classList.add('show'); }
         function closeModal() { document.getElementById('comingSoonModal').classList.remove('show'); }
-        // Close modal when clicking on overlay
         document.getElementById('comingSoonModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
     </script>
 </body>
