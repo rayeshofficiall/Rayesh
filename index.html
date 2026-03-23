@@ -37,7 +37,7 @@
 
         @keyframes cardFadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- ✨ Professional Real-time Counter --- */
+        /* --- ✨ Improved Real-time Counter Design --- */
         .live-capsule-corner {
             position: absolute; top: 25px; right: 25px;
             display: flex; flex-direction: column; align-items: flex-end; gap: 4px; z-index: 10;
@@ -82,7 +82,6 @@
         }
         .profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid #030303; }
 
-        /* --- ✨ Improved Status Badge --- */
         .status-badge {
             background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 50px; padding: 6px 18px; display: inline-flex; align-items: center; gap: 8px;
@@ -189,12 +188,11 @@
     </div>
 
     <div class="main-card">
-        
         <div class="live-capsule-corner">
             <span class="counter-label">Global Tracker</span>
             <div class="counter-wrapper">
                 <img src="https://img.icons8.com/material-rounded/24/DFC28C/visible.png" class="eye-icon-gold" alt="Views">
-                <span id="visitor-count">0</span>
+                <span id="visitor-count">...</span>
             </div>
         </div>
 
@@ -249,94 +247,64 @@
     </div>
 
     <script>
-        // --- ⚙️ TikTok Live Status System (Enhanced Version) ---
+        // --- ⚙️ TikTok Live Status ---
         const TIKTOK_USER = "rayesh_unre"; 
         
         async function updateLiveStatus() {
             const badge = document.getElementById('live-status');
             const text = document.getElementById('status-text');
-            
-            // 1. ตรวจสอบ Manual Override (?live=true) เพื่อความชัวร์ 100%
             const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('live') === 'true') {
-                setOnline(badge, text);
-                return;
-            }
+            if (urlParams.get('live') === 'true') { setOnline(badge, text); return; }
 
             try {
-                // 2. ดึงข้อมูลผ่าน Proxy พร้อมเติม Timestamp เพื่อไม่ให้ติด Cache เก่า
                 const targetUrl = `https://www.tiktok.com/@${TIKTOK_USER}?t=${Date.now()}`;
                 const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`);
                 const data = await response.json();
                 const content = data.contents;
-
-                // 3. Keyword Check (ครอบคลุมทั้งสตรีมจาก PC/Studio และ Mobile)
-                const isLiveNow = content.includes('"liveContext":1') || 
-                                 content.includes('IsLive":true') || 
-                                 content.includes('status":2') || 
-                                 content.includes('live-title') ||
-                                 content.includes('broadcast-view') ||
-                                 content.includes('room_id');
-
-                if (isLiveNow) {
-                    setOnline(badge, text);
-                } else {
-                    setOffline(badge, text);
-                }
-            } catch (err) {
-                // หาก Error ให้คงสถานะเดิมหรือ Offline
-                setOffline(badge, text);
-            }
+                const isLiveNow = content.includes('"liveContext":1') || content.includes('IsLive":true') || content.includes('status":2') || content.includes('room_id');
+                if (isLiveNow) { setOnline(badge, text); } else { setOffline(badge, text); }
+            } catch (err) { setOffline(badge, text); }
         }
 
-        function setOnline(badge, text) {
-            badge.classList.add('online');
-            text.innerText = "ONLINE";
-        }
-
-        function setOffline(badge, text) {
-            badge.classList.remove('online');
-            text.innerText = "OFFLINE";
-        }
-
-        // เช็คสถานะทันทีเมื่อโหลด และเช็คซ้ำทุกๆ 1 นาที (60000ms)
+        function setOnline(badge, text) { badge.classList.add('online'); text.innerText = "ONLINE"; }
+        function setOffline(badge, text) { badge.classList.remove('online'); text.innerText = "OFFLINE"; }
         updateLiveStatus();
         setInterval(updateLiveStatus, 60000);
 
-        // --- ⚙️ Global Real-time Tracker (Visitor Counter) ---
+        // --- ⚙️ NEW STABLE VISITOR COUNTER (CountAPI.it) ---
         const counterEl = document.getElementById('visitor-count');
-        const NAMESPACE = "rayesh_v3_fresh_start"; 
-        const KEY = "total_hits";
+        const SITE_DOMAIN = "rayesh-official-v1"; // ชื่อจำเพาะของคุณ
 
-        async function initFreshCounter() {
-            counterEl.innerText = "0";
+        async function initCounter() {
             try {
-                const response = await fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`);
+                // ดึงข้อมูลและเพิ่มยอดวิว (Hit)
+                const response = await fetch(`https://countapi.it/hit/${SITE_DOMAIN}/visits`);
                 const data = await response.json();
                 if (data && data.value) {
-                    animateCounterUp(0, data.value, 1800); 
+                    animateCounter(0, data.value, 2000);
+                } else {
+                    counterEl.innerText = "1";
                 }
             } catch (err) {
-                animateCounterUp(0, 1, 1000);
+                console.error("Counter Error", err);
+                counterEl.innerText = "1";
             }
         }
 
-        function animateCounterUp(start, end, duration) {
+        function animateCounter(start, end, duration) {
             let startTimestamp = null;
             const step = (timestamp) => {
                 if (!startTimestamp) startTimestamp = timestamp;
                 const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                const easeValue = progress * (2 - progress);
-                const current = Math.floor(easeValue * (end - start) + start);
+                const current = Math.floor(progress * (end - start) + start);
                 counterEl.innerText = current.toLocaleString();
                 if (progress < 1) window.requestAnimationFrame(step);
             };
             window.requestAnimationFrame(step);
         }
 
-        window.addEventListener('DOMContentLoaded', initFreshCounter);
+        window.addEventListener('DOMContentLoaded', initCounter);
 
-        // Modal Controls
         function openModal() { document.getElementById('comingSoonModal').classList.add('show'); }
         function closeModal() { document.getElementById('comingSoonModal').classList.remove('show'); }
     </script>
