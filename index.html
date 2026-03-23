@@ -47,24 +47,36 @@
         .main-card:hover .live-capsule-corner { opacity: 1; border-color: rgba(223, 194, 140, 0.4); }
         .eye-icon-micro { width: 14px; height: 14px; filter: brightness(0) invert(1) opacity(0.5); }
         .c-label { font-size: 0.5rem; letter-spacing: 1.5px; color: rgba(255,255,255,0.4); font-weight: 700; }
-        /* ปรับแต่งภาพยอดวิวใหม่ให้ดูเนียนตา */
-        .c-img-minimal { height: 12px; filter: invert(1) contrast(1.2); opacity: 0.9; }
-
-        /* --- Profile & Rings --- */
-        .profile-zone { margin-bottom: 30px; position: relative; display: inline-block; }
-        .ring-outer, .ring-inner {
-            position: absolute; inset: -14px; border-radius: 50%; border: 2px solid transparent; 
-            mask-image: linear-gradient(#fff 0 0); -webkit-mask-image: linear-gradient(#fff 0 0);
-        }
-        .ring-outer { border-top-color: rgba(223, 194, 140, 0.5); animation: spin 8s linear infinite; }
-        .ring-inner { inset: -7px; border-bottom-color: rgba(223, 194, 140, 0.3); animation: spin-reverse 6s linear infinite; }
         
+        /* === Supreme Balance Profile & Rings === */
+        .profile-zone { margin-bottom: 25px; position: relative; display: inline-block; z-index: 1; }
+        
+        .ring-outer, .ring-inner {
+            position: absolute; border-radius: 50%; border: 2px solid transparent; 
+            -webkit-mask-image: linear-gradient(#fff 0 0); mask-image: linear-gradient(#fff 0 0);
+        }
+
+        .ring-outer {
+            inset: -14px; /* กระชับวงแหวนเข้ามา */
+            background-image: conic-gradient(from 0deg, rgba(223, 194, 140, 0) 0%, rgba(223, 194, 140, 0.7) 25%, rgba(255, 255, 255, 0.8) 30%, rgba(223, 194, 140, 0.7) 35%, rgba(223, 194, 140, 0) 50%);
+            filter: drop-shadow(0 0 3px rgba(223, 194, 140, 0.2));
+            animation: spin 10s linear infinite; /* หมุนช้าลงเล็กน้อยเพื่อความนุ่มนวล */
+        }
+
+        .ring-inner {
+            inset: -7px;
+            background-image: conic-gradient(from 180deg, rgba(223, 194, 140, 0) 0%, rgba(223, 194, 140, 0.5) 25%, rgba(255, 250, 240, 0.7) 30%, rgba(223, 194, 140, 0.5) 35%, rgba(223, 194, 140, 0) 50%);
+            animation: spin-reverse 7s linear infinite;
+        }
+
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         @keyframes spin-reverse { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
 
         .profile-wrapper {
-            width: 135px; height: 135px; border-radius: 50%; padding: 6px;
-            background: linear-gradient(135deg, rgba(223, 194, 140, 0.4), transparent);
+            width: 110px; height: 110px; /* ย่อขนาดรูปโปรไฟล์ลงเล็กน้อยเพื่อความลงตัว */
+            border-radius: 50%; padding: 5px;
+            background: linear-gradient(135deg, rgba(223, 194, 140, 0.3), transparent);
+            position: relative; z-index: 2;
         }
         .profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid #030303; }
 
@@ -77,69 +89,77 @@
         .dot { width: 7px; height: 7px; background: #ff4d4d; border-radius: 50%; box-shadow: 0 0 10px #ff4d4d; animation: pulse 1.5s infinite; }
         @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.2); } 100% { opacity: 1; transform: scale(1); } }
 
-        /* --- Typography --- */
+        /* --- Typography (Professional Finetuned) --- */
         .title-premium {
-            font-family: 'Cinzel', serif; font-size: 2.8rem; margin: 15px 0 0; 
+            font-family: 'Cinzel', serif; font-size: 2.5rem; margin: 12px 0 0; /* ย่อขนาดและลด Margin */
             background: linear-gradient(90deg, #fff, #DFC28C, #fff); background-size: 200% auto;
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            letter-spacing: 12px; font-weight: 700; animation: shimmerText 5s linear infinite;
+            letter-spacing: 10px; font-weight: 700; animation: shimmerText 5s linear infinite;
         }
         @keyframes shimmerText { to { background-position: 200% center; } }
-        .tag-line { color: rgba(223, 194, 140, 0.6); font-size: 0.6rem; letter-spacing: 6px; margin: 10px 0 20px; text-transform: uppercase; }
-        .bio-description { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 40px; line-height: 1.8; }
+        .tag-line { color: rgba(223, 194, 140, 0.6); font-size: 0.55rem; letter-spacing: 5px; margin: 8px 0 18px; text-transform: uppercase; }
+        .bio-description { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 35px; line-height: 1.7; }
+        .bio-description strong { color: #DFC28C; font-weight: 500; }
 
-        /* --- 🌟 Elite Buttons --- */
-        .links-area { display: flex; flex-direction: column; gap: 20px; }
+        /* --- 🌟 Elite Buttons with Refined Beam --- */
+        .links-area { display: flex; flex-direction: column; gap: 18px; }
+        
         .elite-btn {
             position: relative; display: flex; align-items: center;
-            background: rgba(255, 255, 255, 0.03); color: #ffffff;
-            text-decoration: none; padding: 22px 25px; border-radius: 20px;
+            background: rgba(255, 255, 255, 0.02); color: #ffffff;
+            text-decoration: none; padding: 18px 22px; border-radius: 18px; /* กระชับขนาดปุ่ม */
             overflow: hidden; transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
+        /* --- ⚡ Refined Beam Animation --- */
         .elite-btn::before {
             content: ""; position: absolute; top: 50%; left: 50%;
-            width: 150%; height: 40px;
-            background: linear-gradient(transparent, rgba(223, 194, 140, 0.4), transparent);
+            width: 150%; height: 30px; /* ลดความหนาของแสง */
+            background: linear-gradient(transparent, rgba(223, 194, 140, 0.3), transparent);
             transform: translate(-50%, -50%) rotate(45deg);
-            animation: beamRotate 4s linear infinite; z-index: 1; pointer-events: none;
+            animation: beamRotate 4s linear infinite;
+            z-index: 1; pointer-events: none;
         }
 
         @keyframes beamRotate {
-            0% { transform: translate(-50%, -50%) rotate(0deg) translateY(-100px); }
-            100% { transform: translate(-50%, -50%) rotate(360deg) translateY(-100px); }
+            0% { transform: translate(-50%, -50%) rotate(0deg) translateY(-80px); }
+            100% { transform: translate(-50%, -50%) rotate(360deg) translateY(-80px); }
         }
 
         .elite-btn::after {
-            content: ""; position: absolute; inset: 1.5px;
-            background: #080808; border-radius: 19px; z-index: 2;
+            content: ""; position: absolute; inset: 1.2px;
+            background: #080808; border-radius: 17px; z-index: 2;
         }
 
         .btn-content { position: relative; z-index: 3; display: flex; align-items: center; width: 100%; }
+        
         .icon-premium { 
-            width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
-            margin-right: 18px; background: rgba(223, 194, 140, 0.08); border-radius: 12px;
-            border: 1px solid rgba(223, 194, 140, 0.15); transition: 0.4s;
+            width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+            margin-right: 16px; background: rgba(223, 194, 140, 0.06); border-radius: 10px;
+            border: 1px solid rgba(223, 194, 140, 0.12); transition: 0.4s;
         }
-        .icon-premium img { width: 22px; filter: drop-shadow(0 0 5px rgba(223, 194, 140, 0.3)); }
+        .icon-premium img { width: 20px; filter: drop-shadow(0 0 4px rgba(223, 194, 140, 0.3)); }
+        
         .text-zone { flex-grow: 1; text-align: left; }
-        .text-zone strong { display: block; font-size: 1.1rem; font-family: 'Cinzel', serif; letter-spacing: 1.5px; color: #DFC28C; }
-        .text-zone span { font-size: 0.7rem; color: rgba(255,255,255,0.3); }
-        .arrow-action { font-size: 1.1rem; color: #DFC28C; opacity: 0.3; transition: 0.4s; }
+        .text-zone strong { display: block; font-size: 1rem; font-family: 'Cinzel', serif; letter-spacing: 1.2px; color: #DFC28C; }
+        .text-zone span { font-size: 0.65rem; color: rgba(255,255,255,0.3); }
+        
+        .arrow-action { font-size: 1rem; color: #DFC28C; opacity: 0.3; transition: 0.4s; }
 
-        .elite-btn:hover { transform: translateY(-5px); border-color: rgba(223, 194, 140, 0.5); box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
-        .elite-btn:hover .icon-premium { background: rgba(223, 194, 140, 0.2); transform: scale(1.05); }
-        .elite-btn:hover .arrow-action { opacity: 1; transform: translateX(5px); }
+        /* Hover Interaction */
+        .elite-btn:hover { transform: translateY(-4px); border-color: rgba(223, 194, 140, 0.4); box-shadow: 0 12px 25px rgba(0,0,0,0.5); }
+        .elite-btn:hover .icon-premium { background: rgba(223, 194, 140, 0.15); transform: scale(1.03); }
+        .elite-btn:hover .arrow-action { opacity: 1; transform: translateX(4px); }
 
         /* --- Social Mini --- */
-        .social-mini-group { display: flex; justify-content: center; gap: 18px; margin-top: 40px; }
+        .social-mini-group { display: flex; justify-content: center; gap: 16px; margin-top: 35px; }
         .mini-icon { 
-            padding: 14px; background: rgba(255, 255, 255, 0.03); border-radius: 16px; 
+            padding: 12px; background: rgba(255, 255, 255, 0.03); border-radius: 14px; 
             border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.4s; display: flex; 
         }
-        .mini-icon img { width: 20px; opacity: 0.5; transition: 0.3s; }
-        .mini-icon:hover { background: rgba(223, 194, 140, 0.15); transform: translateY(-8px); border-color: rgba(223, 194, 140, 0.4); }
+        .mini-icon img { width: 18px; opacity: 0.5; transition: 0.3s; }
+        .mini-icon:hover { background: rgba(223, 194, 140, 0.12); transform: translateY(-6px); border-color: rgba(223, 194, 140, 0.3); }
         .mini-icon:hover img { opacity: 1; }
 
         /* --- Modal --- */
@@ -148,17 +168,17 @@
             display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: 0.4s; z-index: 1000; 
         }
         .modal-overlay.show { opacity: 1; visibility: visible; }
-        .modal-card { background: #0a0a0a; padding: 40px; border-radius: 30px; border: 1px solid rgba(223, 194, 140, 0.4); text-align: center; }
-        .modal-close { margin-top: 25px; background: #DFC28C; border: none; color: #000; padding: 10px 30px; border-radius: 50px; cursor: pointer; font-weight: 700; }
+        .modal-card { background: #0a0a0a; padding: 40px; border-radius: 30px; border: 1px solid rgba(223, 194, 140, 0.4); text-align: center; max-width: 320px; }
+        .modal-close { margin-top: 25px; background: #DFC28C; border: none; color: #000; padding: 10px 30px; border-radius: 50px; cursor: pointer; font-weight: 700; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
     <div class="modal-overlay" id="comingSoonModal">
         <div class="modal-card">
-            <p style="font-family: 'Cinzel', serif; letter-spacing: 2px; color: #DFC28C;">COMING SOON</p>
-            <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">ยังไม่เปิดให้บริการในขณะนี้ครับ</p>
-            <button class="modal-close" onclick="closeModal()">ตกลง</button>
+            <p style="font-family: 'Cinzel', serif; letter-spacing: 2px; color: #DFC28C; font-size: 1rem; margin-top: 0;">COMING SOON</p>
+            <p style="font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 0;">ขณะนี้ยังไม่เปิดให้บริการครับ <br> โปรดติดตามข่าวสารเร็วๆ นี้</p>
+            <button class="modal-close" onclick="closeModal()">รับทราบ</button>
         </div>
     </div>
 
@@ -167,7 +187,7 @@
         <div class="live-capsule-corner">
             <img src="https://img.icons8.com/material-rounded/24/ffffff/visible.png" class="eye-icon-micro" alt="Views">
             <span class="c-label">VIEWS</span>
-            <img class="c-img-minimal" src="https://hits.dwyl.com/rayeshofficiall/Rayesh.svg" alt="Counter">
+            <img src="https://hits.dwyl.com/rayeshofficiall/Rayesh.svg" alt="Counter" style="height: 12px; filter: invert(1) brightness(1.5); opacity: 0.9;">
         </div>
 
         <div class="content-relative">
@@ -182,35 +202,35 @@
             <center><div class="status-badge"><div class="dot"></div> LIVE NOW</div></center>
             
             <h1 class="title-premium">RAYESH</h1>
-            <span class="tag-line">Thank you for support</span>
+            <span class="tag-line">Excellence in Streaming</span>
             
             <p class="bio-description">
-                ช่องทางสำหรับ <strong>โดเนท</strong> สนับสนุนสตรีมเมอร์ <br>
-                และ <strong>ดิสคอร์ด</strong> สำหรับพูดคุยติดตามข่าวสารครับ
+                Official destination for <strong>Donations</strong> and support. <br>
+                Join our <strong>Discord</strong> for exclusive community updates.
             </p>
 
             <div class="links-area">
-                <a href="https://easydonate.app/Console_X" class="elite-btn" target="_blank">
+                <a href="https://easydonate.app/Console_X" class="elite-btn" target="_blank" rel="noopener">
                     <div class="btn-content">
                         <div class="icon-premium"><img src="https://img.icons8.com/ios-filled/50/DFC28C/wallet.png" alt="Donate"></div>
-                        <div class="text-zone"><strong>DONATE</strong><span>สนับสนุนผ่าน EasyDonate</span></div>
+                        <div class="text-zone"><strong>DONATE</strong><span>Support Rayesh via EasyDonate</span></div>
                         <div class="arrow-action">→</div>
                     </div>
                 </a>
 
-                <a href="https://discord.gg/5Epq3Bsh6W" class="elite-btn" target="_blank">
+                <a href="https://discord.gg/5Epq3Bsh6W" class="elite-btn" target="_blank" rel="noopener">
                     <div class="btn-content">
                         <div class="icon-premium"><img src="https://img.icons8.com/ios-filled/50/DFC28C/discord-logo.png" alt="Discord"></div>
-                        <div class="text-zone"><strong>DISCORD</strong><span>เข้าร่วมคอมมูนิตี้ของเรา</span></div>
+                        <div class="text-zone"><strong>DISCORD</strong><span>Join our elite community</span></div>
                         <div class="arrow-action">→</div>
                     </div>
                 </a>
             </div>
 
             <div class="social-mini-group">
-                <a href="https://www.tiktok.com/@rayesh_unre?_r=1&_t=ZS-94u8TLKgN0e" target="_blank" class="mini-icon" rel="noopener"><img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok.png" alt="Tiktok"></a>
-                <div class="mini-icon" onclick="openModal()" style="cursor: pointer;"><img src="https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png" alt="Youtube"></div>
-                <div class="mini-icon" onclick="openModal()" style="cursor: pointer;"><img src="https://img.icons8.com/ios-filled/50/ffffff/facebook-new.png" alt="Facebook"></div>
+                <a href="https://www.tiktok.com/@rayesh_unre?_r=1&_t=ZS-94u8TLKgN0e" target="_blank" class="mini-icon" rel="noopener" title="TikTok"><img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok.png" alt="Tiktok"></a>
+                <div class="mini-icon" style="cursor: pointer;" onclick="openModal()" title="YouTube"><img src="https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png" alt="Youtube"></div>
+                <div class="mini-icon" style="cursor: pointer;" onclick="openModal()" title="Facebook"><img src="https://img.icons8.com/ios-filled/50/ffffff/facebook-new.png" alt="Facebook"></div>
             </div>
         </div>
     </div>
@@ -218,6 +238,8 @@
     <script>
         function openModal() { document.getElementById('comingSoonModal').classList.add('show'); }
         function closeModal() { document.getElementById('comingSoonModal').classList.remove('show'); }
+        // Close modal when clicking on overlay
+        document.getElementById('comingSoonModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
     </script>
 </body>
 </html>
