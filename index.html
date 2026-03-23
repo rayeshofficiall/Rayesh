@@ -47,9 +47,10 @@
         .main-card:hover .live-capsule-corner { opacity: 1; border-color: rgba(223, 194, 140, 0.4); }
         .eye-icon-micro { width: 14px; height: 14px; filter: brightness(0) invert(1) opacity(0.5); }
         .c-label { font-size: 0.5rem; letter-spacing: 1.5px; color: rgba(255,255,255,0.4); font-weight: 700; }
-        .c-img-minimal { height: 14px; filter: invert(1); opacity: 0.8; }
+        /* ปรับแต่งภาพยอดวิวใหม่ให้ดูเนียนตา */
+        .c-img-minimal { height: 12px; filter: invert(1) contrast(1.2); opacity: 0.9; }
 
-        /* --- Profile & Rings (Original Design) --- */
+        /* --- Profile & Rings --- */
         .profile-zone { margin-bottom: 30px; position: relative; display: inline-block; }
         .ring-outer, .ring-inner {
             position: absolute; inset: -14px; border-radius: 50%; border: 2px solid transparent; 
@@ -87,9 +88,8 @@
         .tag-line { color: rgba(223, 194, 140, 0.6); font-size: 0.6rem; letter-spacing: 6px; margin: 10px 0 20px; text-transform: uppercase; }
         .bio-description { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 40px; line-height: 1.8; }
 
-        /* --- 🌟 Elite Buttons with Running Beam Light --- */
+        /* --- 🌟 Elite Buttons --- */
         .links-area { display: flex; flex-direction: column; gap: 20px; }
-        
         .elite-btn {
             position: relative; display: flex; align-items: center;
             background: rgba(255, 255, 255, 0.03); color: #ffffff;
@@ -98,14 +98,12 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* --- ⚡ The Beam Animation --- */
         .elite-btn::before {
             content: ""; position: absolute; top: 50%; left: 50%;
             width: 150%; height: 40px;
             background: linear-gradient(transparent, rgba(223, 194, 140, 0.4), transparent);
             transform: translate(-50%, -50%) rotate(45deg);
-            animation: beamRotate 4s linear infinite;
-            z-index: 1; pointer-events: none;
+            animation: beamRotate 4s linear infinite; z-index: 1; pointer-events: none;
         }
 
         @keyframes beamRotate {
@@ -119,18 +117,15 @@
         }
 
         .btn-content { position: relative; z-index: 3; display: flex; align-items: center; width: 100%; }
-        
         .icon-premium { 
             width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
             margin-right: 18px; background: rgba(223, 194, 140, 0.08); border-radius: 12px;
             border: 1px solid rgba(223, 194, 140, 0.15); transition: 0.4s;
         }
         .icon-premium img { width: 22px; filter: drop-shadow(0 0 5px rgba(223, 194, 140, 0.3)); }
-        
         .text-zone { flex-grow: 1; text-align: left; }
         .text-zone strong { display: block; font-size: 1.1rem; font-family: 'Cinzel', serif; letter-spacing: 1.5px; color: #DFC28C; }
         .text-zone span { font-size: 0.7rem; color: rgba(255,255,255,0.3); }
-        
         .arrow-action { font-size: 1.1rem; color: #DFC28C; opacity: 0.3; transition: 0.4s; }
 
         .elite-btn:hover { transform: translateY(-5px); border-color: rgba(223, 194, 140, 0.5); box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
@@ -172,8 +167,8 @@
         <div class="live-capsule-corner">
             <img src="https://img.icons8.com/material-rounded/24/ffffff/visible.png" class="eye-icon-micro" alt="Views">
             <span class="c-label">VIEWS</span>
-            <img class="c-img-minimal" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frayeshofficiall.github.io%2FRayesh%2F&count_bg=%2300000000&title_bg=%2300000000&icon=&icon_color=%23E7E7E7&title=&edge_flat=true" alt="Counter">
-            </div>
+            <img class="c-img-minimal" src="https://hits.dwyl.com/rayeshofficiall/Rayesh.svg" alt="Counter">
+        </div>
 
         <div class="content-relative">
             <div class="profile-zone">
@@ -213,9 +208,9 @@
             </div>
 
             <div class="social-mini-group">
-                <a href="https://www.tiktok.com/@rayesh_unre?_r=1&_t=ZS-94u8TLKgN0e" target="_blank" class="mini-icon" rel="noopener" title="TikTok"><img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok.png" alt="Tiktok"></a>
-                <div class="mini-icon" onclick="openModal()" style="cursor: pointer;" title="YouTube"><img src="https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png" alt="Youtube"></div>
-                <div class="mini-icon" onclick="openModal()" style="cursor: pointer;" title="Facebook"><img src="https://img.icons8.com/ios-filled/50/ffffff/facebook-new.png" alt="Facebook"></div>
+                <a href="https://www.tiktok.com/@rayesh_unre?_r=1&_t=ZS-94u8TLKgN0e" target="_blank" class="mini-icon" rel="noopener"><img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok.png" alt="Tiktok"></a>
+                <div class="mini-icon" onclick="openModal()" style="cursor: pointer;"><img src="https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png" alt="Youtube"></div>
+                <div class="mini-icon" onclick="openModal()" style="cursor: pointer;"><img src="https://img.icons8.com/ios-filled/50/ffffff/facebook-new.png" alt="Facebook"></div>
             </div>
         </div>
     </div>
