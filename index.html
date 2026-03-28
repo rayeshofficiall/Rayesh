@@ -581,7 +581,64 @@
             { title: "นับหนึ่ง", artist: "Billkin (บิวกิ้น)" },
             { title: "Avenue", artist: "วัชราวลี" },
             { title: "จะบอกเธอว่ารัก", artist: "The Parkinson" },
-            { title: "ขอโทษได้ไหม", artist: "Nont tanont ft.billkin" }
+            { title: "ขอโทษได้ไหม", artist: "Nont tanont ft.billkin" },
+            
+            // --- New Added Songs (Batch 3) ---
+            { title: "ของขวัญ (Guitar Solo)", artist: "Musketeers" },
+            { title: "Cha La Head Cha La", artist: "Dragon Ball" },
+            { title: "Dan Dan Hikareteku", artist: "Dragon Ball GT" },
+            { title: "Theme of Prontera", artist: "Ragnarok Online" },
+            { title: "ไกล", artist: "Musketeers" },
+            { title: "Here with me", artist: "d4vd" },
+            { title: "สายตาหลอกกันไม่ได้ (Eyes don't lie)", artist: "Ink Waruntorn" },
+            { title: "Spring Day", artist: "BTS" },
+            { title: "Interstellar", artist: "Hans Zimmer" },
+            { title: "สุดแล้วจะไปหา", artist: "LITTLE JOHN" },
+            { title: "Theme of Morroc", artist: "Ragnarok Online" },
+            { title: "Rush B", artist: "Sheet Music Boss" },
+            { title: "Unravel", artist: "Tokyo Ghoul" },
+            { title: "Merry Go Round of Life", artist: "Howl's Moving Castle" },
+            { title: "Dum Dum", artist: "Jeff Satur" },
+            { title: "Until I Found You (V2)", artist: "Stephen Sanchez" },
+            { title: "Friendship Is Magic", artist: "My Little Pony" },
+            { title: "รักเธอ", artist: "Tor+" },
+            { title: "Binks' Sake (V2)", artist: "One Piece" },
+            { title: "Sadness and Sorrow (V2)", artist: "Naruto" },
+            { title: "Merry Christmas", artist: "Mr. Lawrence" },
+            { title: "รอยยิ้ม (Smile)", artist: "Scrubb" },
+            { title: "กล้าพอไหม", artist: "Potato" },
+            { title: "Time Flies", artist: "NONT TANONT" },
+            { title: "Sky&Sea", artist: "Earth Patravee" },
+            { title: "Anytime Anywhere", artist: "milet" },
+            { title: "The Night We Met", artist: "Lord Huron" },
+            { title: "ต้องโทษดาว", artist: "เบิร์ด ธงไชย" },
+            { title: "เหนื่อยไหมหัวใจ", artist: "Retrospect" },
+            { title: "มันคงเป็นเธอ (Lost and Found)", artist: "Jeff Satur" },
+            { title: "One Summer's Day", artist: "Joe Hisaishi" },
+            { title: "IGNITE", artist: "Sword Art Online II" },
+            { title: "เปลี่ยน", artist: "ETC" },
+            { title: "One Voice", artist: "Rokudenashi" },
+            { title: "Hedwig's Theme", artist: "JohnWilliams Harry Potter" },
+            { title: "เกี่ยวกันไหม (You)", artist: "Ink Waruntorn" },
+            { title: "Unravel (Advance)", artist: "Animenz arr. Tokyo Ghoul" },
+            { title: "All I Want For Christmas Is You (Short)", artist: "Mariah Carey" },
+            { title: "ก่อน", artist: "moderndog" },
+            { title: "นกน้อย (noknoi)", artist: "Bowkylion" },
+            { title: "Ylang Ylang", artist: "FKJ" },
+            { title: "The trouble is...ปัญหาของฉัน", artist: "Violette Wautier" },
+            { title: "IM SORRY สีดา", artist: "The Rube" },
+            { title: "Here with me (V2)", artist: "d4vd" },
+            { title: "Multo", artist: "Cup of Joe" },
+            { title: "We are", artist: "ONE PIECE" },
+            { title: "86 EIGHTY-SIX", artist: "Avid" },
+            { title: "Genshin Impact Main Theme", artist: "Genshin Impact" },
+            { title: "Fur Elise", artist: "Beethoven" },
+            { title: "กรรมตามสนอง", artist: "MILLI" },
+            { title: "เธอคือของขวัญ", artist: "สิงโต นำโชค" },
+            { title: "เพียงนิทาน", artist: "NONT TANONT" },
+            { title: "Event", artist: "Season five" },
+            { title: "เจ้าชายนิทรา", artist: "ETC" },
+            { title: "kids", artist: "Stranger Things" }
         ];
 
         function openSongModal() {
@@ -601,7 +658,7 @@
             
             container.innerHTML = ''; 
             
-            // อัปเดตตัวเลขจำนวนเพลง
+            // อัปเดตตัวเลขจำนวนเพลงตามผลลัพธ์ที่หาเจอ
             countDisplay.innerText = `${songsArray.length} TRACKS`;
             
             if (songsArray.length === 0) {
@@ -611,9 +668,10 @@
 
             // ใช้ Document Fragment ช่วยลดภาระการวาดหน้าจอซ้ำๆ ทำให้โหลดไว
             const fragment = document.createDocumentFragment();
-            songsArray.forEach((song, index) => {
-                // รันลำดับตัวเลข
-                const sequenceNum = String(index + 1).padStart(2, '0');
+            songsArray.forEach((song) => {
+                // 🔥 แก้บัค: หาลำดับที่แท้จริงจากอาร์เรย์หลัก (heartopiaSongs) เสมอ
+                const realIndex = heartopiaSongs.indexOf(song) + 1;
+                const sequenceNum = String(realIndex).padStart(2, '0');
                 
                 const div = document.createElement('div');
                 div.className = 'song-item';
